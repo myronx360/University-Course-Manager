@@ -35,6 +35,7 @@ if(isset($_SESSION['userID'])){
 <html>
 <head>
     <title>University Courses Description</title>
+    <link rel="stylesheet" href="../main.css" type="text/css">
 </head>
 <body>
 <?php if(isset($error_msg)) echo $error_msg; ?>

@@ -22,6 +22,8 @@ $departments = getAllDepartments();
 <html>
 <head>
     <title>Add Courses</title>
+
+    <link rel="stylesheet" href="../main.css" type="text/css">
 </head>
 <body>
 <h1>University Courses Manager</h1>

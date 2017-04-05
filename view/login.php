@@ -13,14 +13,24 @@ session_start();
 unset($_SESSION['userName']);
 unset($_SESSION['userType']);
 unset($_SESSION['userID']);
-unset($_SESSION['ERRMSG']);
 session_destroy() ;
 
-//if(isset($_SESSION['ERRMSG'])) {
-//    $error_msg = $_SESSION['ERRMSG'];
+if(isset($_SESSION['ERRMSG'])) {
+    $error_msg = $_SESSION['ERRMSG'];
+}
 //    echo $error_msg;
 //    unset($_SESSION['ERRMSG']);
 //    session_destroy() ;
+
+if(isset($_COOKIE["userName"])){
+    $username = $_COOKIE["userName"];
+    $password =  $_COOKIE["password"];
+
+}else{
+    $username = "";
+    $password =  "";
+
+}
 //}
 ?>
 
@@ -78,6 +88,12 @@ session_destroy() ;
         float: right;
         padding-top: 16px;
     }
+    .error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+    .error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+    .notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+    .success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+    .info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+    .error a, .alert a {color:#8a1f11;}
 
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
@@ -93,7 +109,13 @@ session_destroy() ;
 <body>
 
 <h2>Login Form</h2>
-<?php if(isset($error_msg))echo $error_msg; ?>
+
+<?php if(isset($error_msg)) {
+
+    echo "<div class='error'> $error_msg; </div>";
+}
+ ?>
+
 <form action="login_action.php" method="post">
     <div class="imgcontainer">
         <img src="../img_avatar2.png" alt="Avatar" class="avatar">
@@ -101,20 +123,21 @@ session_destroy() ;
 
     <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" value="propane" required>
+        <input type="text" placeholder="Enter Username" name="uname" value = "<?php echo $username ?>" required>
 
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="123" required>
+        <input type="password" placeholder="Enter Password" name="psw" value="<?php echo $password ?>" required>
 
         <button type="submit">Login</button>
-        <input type="checkbox" checked="checked"> Remember me
+        <input type="checkbox" checked="checked" name="remember" value="remember"> Remember me
+        <span><a href="user_signup_form.php">New User</a></span>
     </div>
 </form>
     <div class="container" style="background-color:#f1f1f1">
         <form action="../view/index.php" method="post">
             <button type="submit" class="cancelbtn">Cancel</button>
         </form>
-        <span class="psw">Forgot <a href="#">password?</a></span>
+        <span class="psw"> <a href="#">Forgot password?</a></span>
     </div>
 
 

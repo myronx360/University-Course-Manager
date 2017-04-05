@@ -28,6 +28,8 @@ $departments = getAllDepartments();
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>List of Departments</title>
+
+    <link rel="stylesheet" href="../main.css" type="text/css">
 </head>
 <body>
 

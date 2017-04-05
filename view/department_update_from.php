@@ -15,6 +15,8 @@ $name = $_POST['depName'];
 <html>
 <head>
     <title>Update Department</title>
+
+    <link rel="stylesheet" href="../main.css" type="text/css">
 </head>
 <body>
 <h1>University Courses Manager</h1>

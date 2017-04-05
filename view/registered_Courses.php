@@ -40,6 +40,7 @@ $regCourses = getAllRegCrsWithUserID($userID);
 <html>
 <head>
     <title>University Courses Description</title>
+    <link rel="stylesheet" href="../main.css" type="text/css">
 </head>
 <body>
 <main>

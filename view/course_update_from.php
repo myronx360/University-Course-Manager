@@ -21,6 +21,8 @@ $course = getCrsWithID($crsID);
 <html>
 <head>
     <title>Course Department</title>
+
+    <link rel="stylesheet" href="../main.css" type="text/css">
 </head>
 <body>
 <h1>University Courses Manager</h1>

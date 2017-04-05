@@ -59,6 +59,10 @@ if(isset($_POST["delete"])){
 
 ?>
 <html>
+<head>
+    <title>Manager Page</title>
+    <link rel="stylesheet" href="../main.css" type="text/css">
+</head>
 <body>
 <main>
 <h1>Manager Page</h1>

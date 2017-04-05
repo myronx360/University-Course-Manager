@@ -32,12 +32,14 @@ if($rows > 0) {
     $_SESSION['userName'] = $rows['userName'];
     $_SESSION['userType'] = $rows['role'];
     $_SESSION['userID'] = $rows['userID'];
-
+    echo $rows;
     if ($rows['role'] == 'manager') {
         header("location: manager_home.php");
+        rememberMe($user, $password);
 //        exit();
     } elseif ($rows['role'] == 'student') {
         header("location: student_home.php");
+        rememberMe($user, $password);
 //        exit();
     } else{
 //        header("location: student_home.php");
@@ -47,14 +49,27 @@ if($rows > 0) {
         header("location: index.php");
 //        exit();
     }
-} else{
-    $errmsg = 'Username and Password are not found';
+} else if($rows < 0){
+
+//    $errmsg = 'Username and Password are not found';
+//    $errmsg = $rows;
+
 
 }
 if(isset($errmsg)) {
     $_SESSION['ERRMSG'] = $errmsg;
-//    session_write_close();
-    header("location: index.php");
-//    exit();
+    session_write_close();
+    header("location: login.php");
+    exit();
+}
+
+function rememberMe($user, $password){
+    if(isset($_POST["remember"])){
+        setcookie('userName' , $user , time()+ 2000 , '/' ) ;
+        setcookie('password' , $password , time()+ 2000 , '/' ) ;
+    }else{
+        setcookie('userName' , '' , time()- 2000 , '/' ) ;
+        setcookie('password' , '' , time()- 2000 , '/' ) ;
+    }
 }
 ?>

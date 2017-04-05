@@ -7,6 +7,17 @@
  * Time: 9:08 PM
  */
 
+function getAllUsers(){
+    global $db;
+    // Get All from department
+    $queryAllUsers = 'SELECT * FROM user';
+    $statement3 = $db->prepare($queryAllUsers);
+    $statement3->execute();
+    $users = $statement3->fetchAll();
+    $statement3->closeCursor();
+    return $users;
+}
+
 // insert new user
 function insertUser($userName, $email, $password, $firstName, $lastName, $role, $deptID, $gender){
     global $db;

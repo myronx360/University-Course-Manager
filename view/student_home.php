@@ -37,6 +37,10 @@ if(isset($_SESSION['userID'])) {
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Student Page</title>
+    <link rel="stylesheet" href="../main.css" type="text/css">
+</head>
 <body>
 <h1>Student Page</h1>
 <h1>Welcome Back <?php echo $name?>!</h1>
